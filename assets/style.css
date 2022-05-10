@@ -1,0 +1,20 @@
+body {
+
+    background-color: rgb(237, 230, 230);
+}
+
+.btn-primary {
+
+
+border-color:rgb(221, 225, 226);
+font-family: 'racing sans one';
+background-image: linear-gradient(to right, lightblue, darkblue);
+}
+
+.container h1 {
+  
+    font-family: 'racing sans one';
+    background-image: linear-gradient(to right, lightblue, darkblue);
+}
+
+
