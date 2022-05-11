@@ -1,6 +1,6 @@
-body {
+ body {
 
-    background-color: rgb(237, 230, 230);
+    background-color: rgb(133, 185, 222) !important;
 }
 
 .btn-primary {
@@ -35,4 +35,16 @@ span.favorable{
     padding: 3px;
     background-color: green;
     color:white;
+}
+
+.search-column{
+    background-color:	#D3D3D3;
+}
+
+.list-group-item{
+    line-height: 0.5;
+    border: none;
+}
+.card-body{
+    flex:auto
 }
