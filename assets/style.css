@@ -5,7 +5,7 @@
 
 .btn-primary {
 
-
+display: flex;
 border-color:rgb(221, 225, 226);
 font-family: 'racing sans one';
 background-image: linear-gradient(to right, lightblue, darkblue);
@@ -48,3 +48,23 @@ span.favorable{
 .card-body{
     flex:auto
 }
+
+
+@media screen and (max-width: 550px) {
+
+    .row{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .text-primary{
+        text-align: center;
+    }
+
+  #search-button{
+      justify-content: center;
+  }
+ 
+
+    
+
