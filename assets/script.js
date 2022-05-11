@@ -15,7 +15,7 @@ var enterCity = function(event){
     var city = cityInput.value.trim();
     if(city){
         getCityWeather(city);
-        // get5Day(city);
+        get5Day(city);
         cities.unshift({city});
         cityInput.value = "";
     } else{
@@ -43,7 +43,7 @@ var displayWeather = function(weather, searchCity){
     weatherContainer.textContent= "";  
     citySearchInput.textContent=searchCity;
  
-    console.log(weather);
+    // console.log(weather);
  
     //create date 
     var currentDate = document.createElement("span")
@@ -97,11 +97,12 @@ var getUvIndex = function(lat,lon){
     .then(function(response){
         response.json().then(function(data){
             displayUvIndex(data)
-           console.log(data)
+          
+       
         });
     });
-    console.log(lat);
-    console.log(lon);
+    // console.log(lat);
+    // console.log(lon);
 }
 
 var displayUvIndex = function(index) {
@@ -125,22 +126,26 @@ var displayUvIndex = function(index) {
 
     //append index to current weather
     weatherContainer.appendChild(uvIndexEl);
+    
 }
 
 var get5Day = function(city){
+    
     var apiKey = "7d715b654cef2b609d1bec94b45d2c07"
     var apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`
 
     fetch(apiURL)
     .then(function(response){
         response.json().then(function(data){
-           display5Day(data);
+           display5Day(data, city);
+           console.log("it fucking works");
+         
         });
     });
 };
 
 var display5Day = function(weather){
-    forecastContainer.textContent = ""
+    forecastContainerEl.textContent = ""
     forecastTitle.textContent = "5-Day Forecast:";
 
     var forecast = weather.list;
@@ -158,7 +163,8 @@ var display5Day = function(weather){
        forecastDate.textContent= moment.unix(dailyForecast.dt).format("MMM D, YYYY");
        forecastDate.classList = "card-header text-center"
        forecastEl.appendChild(forecastDate);
-
+        
+    
        
        //create an image element
        var weatherIcon = document.createElement("img")
@@ -183,12 +189,11 @@ var display5Day = function(weather){
        //append to forecast card
        forecastEl.appendChild(forecastHum);
 
-        // console.log(forecastEl);
+        console.log(forecastEl);
        //append to five day container
-        forecastContainer.appendChild(forecastEl);
+        forecastContainerEl.appendChild(forecastEl);
     }
 
 }
 
 searchCityButton.addEventListener("submit", enterCity);
-

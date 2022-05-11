@@ -13,12 +13,11 @@
 
 </head>
 
-<body class="container">
-
-    <div class="row text-center text-white my-2">
+<body>
+    <header  class="row text-center text-white my-2">
         <h1>Weather Dashboard</h1>
-    </div>
-
+    </header>
+<main class="container">
     <div class="row">
         <div class="column col-3">
             <form id="city-search-form">
@@ -38,30 +37,39 @@
             </div>
 
         </div>
-
+        <div class="col-12 col-md-9">
+            <div class = "row border selected-city" id = "current-forecast">
+                <div class = "col-12">
+                    <h2 id="searched-city"></h2>
+                    <div id = "current-weather-container" class = "list-group"></div>
+                </div>  
+            </div>
       <!-- Forecast column -->
-        <div class="cold-12 col-md-8 col-lg-9">
+        <!-- <div class="cold-12 col-md-8 col-lg-9"> -->
             <!-- Current Forecast Container -->
-            <div class="card" id="current-weather-container">
+            <!-- <div class="card" id="current-weather-container">
                 <h3 class="card-header"></h3>
-                <div class="card-body">
+                <div class="card-body"> -->
                     <!-- Empty ul to hold current weather li's -->
-                    <ul id="forecast">
+                    <!-- <ul id="current-forecast">
 
                     </ul>
                 </div>
-            </div>
-            <h4 class="p-2 mt-3" id="fiveday-container">5-Day Forecast</h4>
+            </div> -->
+
+            <div class = "row border" id=" five-day-forecast">
+            <h4 class="col 12" id="forecast"></h4>
+            <div class = "d-flex" id="fiveday-container"></div>
             <!-- Empty div to hold dailyCards from script.js -->
-            <div class="d-inline-flex flex-wrap p-2" id="daily-forecast">
+            <!-- <div class="d-inline-flex flex-wrap p-2" id="daily-forecast">
 
             </div>
         </div>
     </div>
-    </div>
+    </div> -->
                  
 
-
+</main>
 
 
 
