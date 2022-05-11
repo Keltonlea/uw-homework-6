@@ -15,7 +15,7 @@ var enterCity = function(event){
     var city = cityInput.value.trim();
     if(city){
         getCityWeather(city);
-        get5Day(city);
+        // get5Day(city);
         cities.unshift({city});
         cityInput.value = "";
     } else{
@@ -45,27 +45,27 @@ var displayWeather = function(weather, searchCity){
  
     console.log(weather);
  
-    //create date element
+    //create date 
     var currentDate = document.createElement("span")
     currentDate.textContent=" (" + moment(weather.dt.value).format("MMM D, YYYY") + ") ";
     citySearchInput.appendChild(currentDate);
  
-    //create an image element
+    //create image 
     var weatherIcon = document.createElement("img")
     weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
     citySearchInput.appendChild(weatherIcon);
  
-    //create a span element to hold temperature data
+    //create span element to hold temperature data
     var temperature = document.createElement("span");
     temperature.textContent = "Temperature: " + weather.main.temp + " °F";
     temperature.classList = "list-group-item"
    
-    //create a span element to hold Humidity data
+    //create span element to hold Humidity data
     var humidity = document.createElement("span");
     humidity.textContent = "Humidity: " + weather.main.humidity + " %";
     humidity.classList = "list-group-item"
  
-    //create a span element to hold Wind data
+    //create span element to hold Wind data
     var windSpeed = document.createElement("span");
     windSpeed.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
     windSpeed.classList = "list-group-item"
@@ -73,10 +73,8 @@ var displayWeather = function(weather, searchCity){
     //append to container
     weatherContainer.appendChild(temperature);
  
-    //append to container
     weatherContainer.appendChild(humidity);
  
-    //append to container
     weatherContainer.appendChild(windSpeed);
  
     var lat = weather.coord.lat;
@@ -85,11 +83,18 @@ var displayWeather = function(weather, searchCity){
  }
 
 var saveSearch = function() {
-    
-}
+    localStorage.setItem("cities", JSON.stringify(cities));
+};
+
  
 
+var getUvIndex = function() {
 
+}
+
+var displayUvIndex = function() {
+
+}
 
 
 
