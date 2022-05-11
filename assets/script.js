@@ -88,12 +88,41 @@ var saveSearch = function() {
 
  
 
-var getUvIndex = function() {
-
+var getUvIndex = function(lat,lon){
+    var apiKey = "7d715b654cef2b609d1bec94b45d2c07"
+    var apiURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`
+    fetch(apiURL)
+    .then(function(response){
+        response.json().then(function(data){
+            displayUvIndex(data)
+           // console.log(data)
+        });
+    });
+    //console.log(lat);
+    //console.log(lon);
 }
 
-var displayUvIndex = function() {
+var displayUvIndex = function(index) {
+    var uvIndexEl = document.createElement("div");
+    uvIndexEl.textContent = "UV Index: "
+    uvIndexEl.classList = "list-group-item"
 
+    uvIndexValue = document.createElement("span")
+    uvIndexValue.textContent = index.value
+
+    if(index.value <=2){
+        uvIndexValue.classList = "favorable"
+    }else if(index.value >2 && index.value<=8){
+        uvIndexValue.classList = "moderate "
+    }
+    else if(index.value >8){
+        uvIndexValue.classList = "severe"
+    };
+
+    uvIndexEl.appendChild(uvIndexValue);
+
+    //append index to current weather
+    weatherContainer.appendChild(uvIndexEl);
 }
 
 
