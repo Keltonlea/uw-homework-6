@@ -69,6 +69,7 @@ var displayWeather = function(weather, searchCity){
     var windSpeed = document.createElement("span");
     windSpeed.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
     windSpeed.classList = "list-group-item"
+
  
     //append to container
     weatherContainer.appendChild(temperature);
@@ -76,6 +77,7 @@ var displayWeather = function(weather, searchCity){
     weatherContainer.appendChild(humidity);
  
     weatherContainer.appendChild(windSpeed);
+
  
     var lat = weather.coord.lat;
     var lon = weather.coord.lon;
@@ -89,17 +91,17 @@ var saveSearch = function() {
  
 
 var getUvIndex = function(lat,lon){
-    var apiKey = "7d715b654cef2b609d1bec94b45d2c07"
-    var apiURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`
+    var apiKey = "7d715b654cef2b609d1bec94b45d2c07";
+    var apiURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`;
     fetch(apiURL)
     .then(function(response){
         response.json().then(function(data){
             displayUvIndex(data)
-           // console.log(data)
+           console.log(data)
         });
     });
-    //console.log(lat);
-    //console.log(lon);
+    console.log(lat);
+    console.log(lon);
 }
 
 var displayUvIndex = function(index) {
@@ -113,7 +115,7 @@ var displayUvIndex = function(index) {
     if(index.value <=2){
         uvIndexValue.classList = "favorable"
     }else if(index.value >2 && index.value<=8){
-        uvIndexValue.classList = "moderate "
+        uvIndexValue.classList = "moderate"
     }
     else if(index.value >8){
         uvIndexValue.classList = "severe"
