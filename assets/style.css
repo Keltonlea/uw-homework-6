@@ -57,27 +57,37 @@ span.favorable{
 @media screen and (max-width: 550px) {
 
     .row{
-        flex-wrap: wrap;
         justify-content: center;
+    
     }
 
     .text-primary{
-        text-align: center;
+        text-align: center !important;
+        font-size:50% !important;
     }
 
- .card-hearder {
-display:flex;
- }
+    .btn-primary {
+        max-width: 100% !important;
+        font-size: 50% !important;
+    }
+    
+
  #current-weather-container {
     display:flex;
     flex-direction: column;
     align-items: center;
+    max-width:100%;
  }
 
  #fiveday-container {
     display:flex;
     flex-direction: column;
     align-items: center; 
-    width:100%;   
+   max-width:100%;   
  }
+ #city-input {
+     max-width:100%;
+ }
+
 }
+
