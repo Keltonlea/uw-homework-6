@@ -49,7 +49,9 @@ span.favorable{
     flex:auto
 }
 
-
+.forecast-card{
+    justify-content:column;
+}
 
 
 @media screen and (max-width: 550px) {
@@ -63,6 +65,9 @@ span.favorable{
         text-align: center;
     }
 
+ .card-hearder {
+display:flex;
+ }
    
   
  

@@ -4,7 +4,7 @@ var cities = [];
 var searchCityButton=document.querySelector("#city-search-form");
 var cityInput=document.querySelector("#city-input");
 var weatherContainer=document.querySelector("#current-weather-container");
-var pastSearchButtons = document.querySelector("#past-searches-buttons");
+var pastSearchButtons = document.querySelector("#past-search-buttons");
 var forecastTitle = document.querySelector("#forecast");
 var forecastContainerEl = document.querySelector("#fiveday-container");
 var clearButton = document.querySelector("#clear-button");
@@ -25,6 +25,7 @@ var enterCity = function(event){
         alert("Please enter a City");
     }
     saveSearch();
+    pastSearch(city);
    
 }
 
@@ -46,7 +47,7 @@ var displayWeather = function(weather, searchCity){
     weatherContainer.textContent= "";  
    searchedCity.textContent=searchCity;
  
-    console.log(weather);
+    // console.log(weather);
  
     //create date 
     var currentDate = document.createElement("span")
@@ -157,7 +158,8 @@ var display5Day = function(weather){
         
        
        var forecastEl=document.createElement("div");
-       forecastEl.classList = "card bg-primary text-light m-2";
+      
+       forecastEl.classList = "d-flex card bg-primary text-light m-2 forecast-card";
 
     //    console.log(dailyForecast)
 
@@ -200,8 +202,31 @@ var display5Day = function(weather){
 }
 
 
+var pastSearch = function(pastSearch){
+ 
+    console.log(pastSearch)
 
+    pastSearchEl = document.createElement("button");
+    pastSearchEl.textContent = pastSearch;
+    pastSearchEl.classList = "d-flex w-100 btn-light border p-2";
+    pastSearchEl.setAttribute("data-city",pastSearch)
+    pastSearchEl.setAttribute("type", "submit");
+
+    pastSearchButtons.prepend(pastSearchEl);
+}
+
+
+var pastSearchHandler = function(event){
+    var city = event.target.getAttribute("data-city")
+    if(city){
+        getCityWeather(city);
+        get5Day(city);
+    }
+}
+
+pastSearchButtons.addEventListener("click", pastSearchHandler);
 searchCityButton.addEventListener("submit", enterCity);
 clearButton.addEventListener("click", function(){
     localStorage.clear();
+    document.querySelector(".past-search").innerHTML=""
 })
