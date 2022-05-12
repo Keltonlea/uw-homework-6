@@ -4,9 +4,12 @@ var cities = [];
 var searchCityButton=document.querySelector("#city-search-form");
 var cityInput=document.querySelector("#city-input");
 var weatherContainer=document.querySelector("#current-weather-container");
-var citySearchInput = document.querySelector("#past-searches");
+var pastSearchButtons = document.querySelector("#past-searches-buttons");
 var forecastTitle = document.querySelector("#forecast");
 var forecastContainerEl = document.querySelector("#fiveday-container");
+var clearButton = document.querySelector("#clear-button");
+var searchedCity = document.querySelector("#searched-city");
+
 
 
 
@@ -41,19 +44,19 @@ var getCityWeather = function(city){
 var displayWeather = function(weather, searchCity){
     //clear old content
     weatherContainer.textContent= "";  
-    citySearchInput.textContent=searchCity;
+   searchedCity.textContent=searchCity;
  
-    // console.log(weather);
+    console.log(weather);
  
     //create date 
     var currentDate = document.createElement("span")
     currentDate.textContent=" (" + moment(weather.dt.value).format("MMM D, YYYY") + ") ";
-    citySearchInput.appendChild(currentDate);
+    searchedCity.appendChild(currentDate);
  
     //create image 
     var weatherIcon = document.createElement("img")
     weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
-    citySearchInput.appendChild(weatherIcon);
+    searchedCity.appendChild(weatherIcon);
  
     //create span element to hold temperature data
     var temperature = document.createElement("span");
@@ -138,7 +141,7 @@ var get5Day = function(city){
     .then(function(response){
         response.json().then(function(data){
            display5Day(data, city);
-           console.log("it fucking works");
+           
          
         });
     });
@@ -156,7 +159,7 @@ var display5Day = function(weather){
        var forecastEl=document.createElement("div");
        forecastEl.classList = "card bg-primary text-light m-2";
 
-       console.log(dailyForecast)
+    //    console.log(dailyForecast)
 
        //create date element
        var forecastDate = document.createElement("h5")
@@ -189,11 +192,16 @@ var display5Day = function(weather){
        //append to forecast card
        forecastEl.appendChild(forecastHum);
 
-        console.log(forecastEl);
+        // console.log(forecastEl);
        //append to five day container
         forecastContainerEl.appendChild(forecastEl);
     }
 
 }
 
+
+
 searchCityButton.addEventListener("submit", enterCity);
+clearButton.addEventListener("click", function(){
+    localStorage.clear();
+})
