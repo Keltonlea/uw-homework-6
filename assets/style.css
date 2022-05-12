@@ -6,10 +6,13 @@
 .btn-primary {
 
 display: flex;
-border-color:rgb(221, 225, 226);
+border-color:rgb(221, 225, 226)!important ;
 font-family: 'racing sans one';
 background-image: linear-gradient(to right, lightblue, darkblue);
+
 }
+
+
 
 header h1 {
   
@@ -17,7 +20,9 @@ header h1 {
     background-image: linear-gradient(to right, lightblue, darkblue);
 }
 
-
+.forecast-card {
+    background-color: darkblue !important;
+}
 
 
 span.severe{
@@ -54,8 +59,9 @@ span.favorable{
 }
 
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
 
+   
     .row{
         justify-content: center;
     
