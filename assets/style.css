@@ -33,14 +33,12 @@ header h1 {
 
 
 #current-forecast {
-    background-image: linear-gradient(to right, lightblue, darkblue) !important;
+  
     color: white;
     font-family: 'racing sanes one' !important;
 }
 
-.forecast-card {
-    background-color: darkblue !important;
-}
+
 
 
 span.severe{
