@@ -210,7 +210,7 @@ var pastSearch = function(pastSearch){
     pastSearchEl.textContent = pastSearch;
     pastSearchEl.classList = "d-flex w-100 btn-primary border p-2";
     pastSearchEl.setAttribute("data-city",pastSearch)
-    pastSearchEl.setAttribute("type", "submit");
+    pastSearchEl.setAttribute("type", "submit", "text-center");
 
     pastSearchButtons.prepend(pastSearchEl);
 }
