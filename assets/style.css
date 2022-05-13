@@ -23,6 +23,18 @@ header h1 {
     background-image: linear-gradient(to right, lightblue, darkblue);
 }
 
+#forecast {
+    
+    color: white;
+    font-family: 'racing sanes one' !important;
+}
+
+#current-forecast {
+    background-image: linear-gradient(to right, lightblue, darkblue) !important;
+    color: white;
+    font-family: 'racing sanes one' !important;
+}
+
 .forecast-card {
     background-color: darkblue !important;
 }
